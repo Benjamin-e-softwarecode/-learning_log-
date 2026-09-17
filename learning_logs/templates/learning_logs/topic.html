@@ -1,0 +1,16 @@
+{% extends "learning_logs/base.html" %}
+
+{% block content %}
+  <h1>Topic: {{ topic }}</h1>
+  <h5 class="text-muted">Entries:</h5>
+  {% for entry in entries %}
+    <div class="card mb-3">
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted">{{ entry.date_added }}</h6>
+        <p class="card-text">{{ entry.text|linebreaks }}</p>
+      </div>
+    </div>
+  {% empty %}
+    <p>There are no entries for this topic yet.</p>
+  {% endfor %}
+{% endblock content %}
